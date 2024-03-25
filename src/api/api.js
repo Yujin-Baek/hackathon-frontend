@@ -10,13 +10,13 @@ export const createShortUrl = async (url) => {
   return data;
 };
 
-export const fetchShortUrl = async () => {
+export const fetchUrls = async () => {
   const response = await fetch("/short-links");
   const data = await response.json();
   return data;
 };
 
-export const deleteShortUrl = async (id) => {
+export const deleteUrl = async (id) => {
   const response = await fetch(`/short-links/${id}`, {
     method: "DELETE",
   });
