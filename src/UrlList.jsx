@@ -19,12 +19,14 @@ export default function UrlList({ urls, setUrls }) {
 
   return (
     <ul>
-      {urls.map((url) => (
-        <li key={url.shortUrl}>
-          <a href="url.shortUrl">{url.shortUrl}</a>
-          <button onClick={() => deleteUrl(url.id)}>X</button>
-        </li>
-      ))}
+      {urls.length === 0 && <p>No URLs</p>}
+      {urls.length !== 0 &&
+        urls.map((url) => (
+          <li key={url.shortUrl}>
+            <a href="url.shortUrl">{url.shortUrl}</a>
+            <button onClick={() => deleteUrl(url.id)}>X</button>
+          </li>
+        ))}
     </ul>
   );
 }
