@@ -7,14 +7,12 @@ export const createShortURL = async (url) => {
     body: JSON.stringify({ url }),
   });
   const data = await response.json();
-  console.log(data.shortURL);
-  return data.shortURL;
+  return data;
 };
 
 export const fetchShortURL = async () => {
   const response = await fetch("/short-links");
   const data = await response.json();
-  console.log(data.originUrl);
   return data;
 };
 
