@@ -24,4 +24,3 @@ export default function UrlItem({ url, handleDelete }) {
     </li>
   );
 }
-//url-shortener/bf400
