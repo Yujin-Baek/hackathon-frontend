@@ -4,7 +4,7 @@ import { deleteShortUrl, fetchShortUrl } from "./api/api";
 export default function UrlList({ urls, setUrls }) {
   const getUrls = async () => {
     const response = await fetchShortUrl();
-    setUrls(response.data);
+    setUrls(response);
   };
 
   const deleteUrl = async (id) => {
@@ -16,6 +16,8 @@ export default function UrlList({ urls, setUrls }) {
   useEffect(() => {
     getUrls();
   }, []);
+
+  console.log(urls);
 
   return (
     <ul>

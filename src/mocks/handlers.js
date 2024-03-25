@@ -13,18 +13,14 @@ export const handlers = [
       createdAt: "2021-06-07T11:38:16+0000",
     };
     mockData.push(newData);
-    return HttpResponse.json({
-      data: newData,
-    });
+    return HttpResponse.json(newData);
   }),
 
   http.get("/short-links", () => {
-    return HttpResponse.json({
-      data: mockData,
-    });
+    return HttpResponse.json(mockData);
   }),
 
-  http.delete("/short-links/:id", async ({ params }, res, ctx) => {
+  http.delete("/short-links/:id", async ({ params }) => {
     const { id } = params;
     const index = mockData.findIndex((item) => item.id.toString() === id);
 

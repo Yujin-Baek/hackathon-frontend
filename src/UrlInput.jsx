@@ -10,7 +10,7 @@ export default function UrlInput({ urls, setUrls }) {
 
   const onSubmit = async () => {
     const response = await createShortUrl(input);
-    setUrls([...urls, response.data]);
+    setUrls([...urls, response]);
   };
 
   return (
