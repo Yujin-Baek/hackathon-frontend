@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createShortUrl } from "./api/api";
 
-export default function ShortenUrlInput({ urls, setUrls }) {
+export default function UrlInput({ urls, setUrls }) {
   const [input, setInput] = useState("");
 
   const onChange = (event) => {
@@ -21,7 +21,9 @@ export default function ShortenUrlInput({ urls, setUrls }) {
         type="text"
         placeholder="Please enter the long URL you want to shorten."
       />
-      <button onClick={onSubmit}>Shorten</button>
+      <button id="run-button" onClick={onSubmit}>
+        Run
+      </button>
     </>
   );
 }

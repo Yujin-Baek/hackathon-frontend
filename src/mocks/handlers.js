@@ -7,9 +7,9 @@ export const handlers = [
     const { url } = await request.json();
     const newData = {
       id: mockData.length,
-      shortUrl: `url-shortener/bf40${Math.floor(Math.random() * 10)}`,
+      shortUrl: `url-shortener/bf40${mockData.length}`,
       originUrl: url,
-      hash: `bf40${Math.floor(Math.random() * 10)}`,
+      hash: `bf40${mockData.length}`,
       createdAt: "2021-06-07T11:38:16+0000",
     };
     mockData.push(newData);
@@ -29,7 +29,7 @@ export const handlers = [
     const index = mockData.findIndex((item) => item.id.toString() === id);
 
     if (index === -1) {
-      return HttpResponse.json(
+      return HttpResponse.error(
         { error: "Not found" },
         {
           status: 404,
