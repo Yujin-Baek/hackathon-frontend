@@ -1,4 +1,4 @@
-export default function UrlItem({ url, deleteUrl }) {
+export default function UrlItem({ url, handleDelete }) {
   return (
     <li>
       <div id="url-container">
@@ -7,7 +7,7 @@ export default function UrlItem({ url, deleteUrl }) {
         <p>shortUrl</p>
         <a href="url.shortUrl">{url.shortUrl}</a>
       </div>
-      <button id="delete-button" onClick={() => deleteUrl(url.id)}>
+      <button id="delete-button" onClick={() => handleDelete(url.id)}>
         x
       </button>
     </li>

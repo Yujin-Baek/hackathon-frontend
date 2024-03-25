@@ -4,11 +4,11 @@ import { createShortUrl } from "./api/api";
 export default function UrlInput({ urls, setUrls }) {
   const [input, setInput] = useState("");
 
-  const onChange = (event) => {
+  const handleChange = (event) => {
     setInput(event.target.value);
   };
 
-  const onSubmit = async () => {
+  const handleSubmit = async () => {
     const response = await createShortUrl(input);
     setUrls([...urls, response]);
   };
@@ -16,12 +16,12 @@ export default function UrlInput({ urls, setUrls }) {
   return (
     <>
       <input
-        onChange={onChange}
+        onChange={handleChange}
         value={input}
         type="text"
         placeholder="Please enter the long URL you want to shorten."
       />
-      <button id="run-button" onClick={onSubmit}>
+      <button id="run-button" onClick={handleSubmit}>
         Run
       </button>
     </>

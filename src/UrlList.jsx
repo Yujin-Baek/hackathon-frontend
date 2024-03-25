@@ -3,19 +3,16 @@ import { deleteShortUrl, fetchShortUrl } from "./api/api";
 import UrlItem from "./UrlItem";
 
 export default function UrlList({ urls, setUrls }) {
-  const getUrls = async () => {
-    const response = await fetchShortUrl();
-    setUrls(response);
-  };
-
-  const deleteUrl = async (id) => {
+  const handleDelete = async (id) => {
     await deleteShortUrl(id);
     const filteredUrls = urls.filter((url) => url.id !== id);
     setUrls(filteredUrls);
   };
 
   useEffect(() => {
-    getUrls();
+    fetchShortUrl().then((urlList) => {
+      setUrls(urlList);
+    });
   }, []);
 
   return (
@@ -23,7 +20,7 @@ export default function UrlList({ urls, setUrls }) {
       {urls.length === 0 && <p>No URLs</p>}
       {urls.length !== 0 &&
         urls.map((url) => (
-          <UrlItem key={url.id} url={url} deleteUrl={deleteUrl} />
+          <UrlItem key={url.id} url={url} handleDelete={handleDelete} />
         ))}
     </ul>
   );
