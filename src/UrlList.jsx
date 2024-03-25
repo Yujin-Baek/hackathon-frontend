@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { fetchShortURL } from "./api/api";
+import { fetchShortUrl } from "./api/api";
 
 export default function UrlList() {
   const [urls, setUrls] = useState([]);
 
   useEffect(() => {
     const getUrls = async () => {
-      const response = await fetchShortURL();
+      const response = await fetchShortUrl();
       setUrls(response.data);
     };
 
@@ -17,7 +17,7 @@ export default function UrlList() {
     <ul>
       {urls.map((url) => (
         <li key={url.shortUrl}>
-          <div>{url.originUrl}</div>
+          <a href="url.shortUrl">{url.shortUrl}</a>
         </li>
       ))}
     </ul>

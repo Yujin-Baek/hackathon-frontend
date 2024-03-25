@@ -1,4 +1,4 @@
-export const createShortURL = async (url) => {
+export const createShortUrl = async (url) => {
   const response = await fetch("/short-links", {
     method: "POST",
     headers: {
@@ -10,13 +10,13 @@ export const createShortURL = async (url) => {
   return data;
 };
 
-export const fetchShortURL = async () => {
+export const fetchShortUrl = async () => {
   const response = await fetch("/short-links");
   const data = await response.json();
   return data;
 };
 
-export const deleteShortURL = async (id) => {
+export const deleteShortUrl = async (id) => {
   const response = await fetch(`/short-links/${id}`, {
     method: "DELETE",
   });
