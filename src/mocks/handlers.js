@@ -7,7 +7,7 @@ export const handlers = [
     return HttpResponse.json({
       data: {
         id: 1,
-        shortUrl: "url-shortener/bf406",
+        shortUrl: `url-shortener/bf40${Math.floor(Math.random() * 10)}`,
         originUrl: url,
         hash: "bf406",
         createdAt: "2021-06-07T11:38:16+0000",

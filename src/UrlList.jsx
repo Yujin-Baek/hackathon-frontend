@@ -1,15 +1,13 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { fetchShortUrl } from "./api/api";
 
-export default function UrlList() {
-  const [urls, setUrls] = useState([]);
+export default function UrlList({ urls, setUrls }) {
+  const getUrls = async () => {
+    const response = await fetchShortUrl();
+    setUrls(response.data);
+  };
 
   useEffect(() => {
-    const getUrls = async () => {
-      const response = await fetchShortUrl();
-      setUrls(response.data);
-    };
-
     getUrls();
   }, []);
 

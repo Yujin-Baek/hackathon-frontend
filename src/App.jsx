@@ -1,11 +1,14 @@
+import { useState } from "react";
 import UrlList from "./UrlList";
+import ShortenUrlInput from "./ShortenUrlInput";
 
 function App() {
+  const [urls, setUrls] = useState([]);
+
   return (
     <div className="App">
-      <input type="text" />
-      <button>Shorten</button>
-      <UrlList />
+      <ShortenUrlInput urls={urls} setUrls={setUrls} />
+      <UrlList urls={urls} setUrls={setUrls} />
     </div>
   );
 }
