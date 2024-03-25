@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { deleteShortUrl, fetchShortUrl } from "./api/api";
+import UrlItem from "./UrlItem";
 
 export default function UrlList({ urls, setUrls }) {
   const getUrls = async () => {
@@ -17,24 +18,12 @@ export default function UrlList({ urls, setUrls }) {
     getUrls();
   }, []);
 
-  console.log(urls);
-
   return (
     <ul>
       {urls.length === 0 && <p>No URLs</p>}
       {urls.length !== 0 &&
         urls.map((url) => (
-          <li key={url.shortUrl}>
-            <div id="url-container">
-              <p>longUrl</p>
-              <a href="url.originUrl">{url.originUrl}</a>
-              <p>shortUrl</p>
-              <a href="url.shortUrl">{url.shortUrl}</a>
-            </div>
-            <button id="delete-button" onClick={() => deleteUrl(url.id)}>
-              x
-            </button>
-          </li>
+          <UrlItem key={url.id} url={url} deleteUrl={deleteUrl} />
         ))}
     </ul>
   );
