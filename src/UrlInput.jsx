@@ -14,7 +14,7 @@ export default function UrlInput({ urls, setUrls }) {
   };
 
   return (
-    <>
+    <div>
       <input
         onChange={handleChange}
         value={input}
@@ -24,6 +24,6 @@ export default function UrlInput({ urls, setUrls }) {
       <button id="run-button" onClick={handleSubmit}>
         Run
       </button>
-    </>
+    </div>
   );
 }

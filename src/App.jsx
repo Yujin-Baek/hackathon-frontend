@@ -6,7 +6,7 @@ function App() {
   const [urls, setUrls] = useState([]);
 
   return (
-    <div className="App">
+    <div id="App">
       <h1>Short URL</h1>
       <UrlInput urls={urls} setUrls={setUrls} />
       <UrlList urls={urls} setUrls={setUrls} />
