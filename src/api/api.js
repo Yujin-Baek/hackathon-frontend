@@ -1,24 +1,21 @@
+import axios from "axios";
+
 export const createShortUrl = async (url) => {
-  const response = await fetch("/short-links", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ url }),
+  const response = await axios.post("/short-links", { url }).catch((error) => {
+    alert("Error:", error);
   });
-  const data = await response.json();
-  return data;
+  return response.data;
 };
 
 export const fetchUrls = async () => {
-  const response = await fetch("/short-links");
-  const data = await response.json();
-  return data;
+  const response = await axios.get("/short-links").catch((error) => {
+    alert("Error:", error);
+  });
+  return response.data;
 };
 
 export const deleteUrl = async (id) => {
-  const response = await fetch(`/short-links/${id}`, {
-    method: "DELETE",
+  await axios.delete(`/short-links/${id}`).catch((error) => {
+    alert("Error:", error);
   });
-  return response;
 };
