@@ -9,8 +9,13 @@ export default function UrlInput({ urls, setUrls }) {
   };
 
   const handleSubmit = async () => {
-    const response = await createShortUrl(input);
-    setUrls([...urls, response]);
+    try {
+      const response = await createShortUrl(input);
+      setUrls([...urls, response]);
+    } catch (error) {
+      alert(`Error creating short URL: ${error.message.toString()}`);
+      console.error("Error creating short URL:", error);
+    }
   };
 
   return (
