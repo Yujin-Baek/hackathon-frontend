@@ -4,15 +4,28 @@ import UrlItem from "./UrlItem";
 
 export default function UrlList({ urls, setUrls }) {
   const handleDelete = async (hash) => {
-    await deleteUrl(hash);
-    const filteredUrls = urls.filter((url) => url.hash !== hash);
-    setUrls(filteredUrls);
+    try {
+      await deleteUrl(hash);
+      const filteredUrls = urls.filter((url) => url.hash !== hash);
+      setUrls(filteredUrls);
+    } catch (error) {
+      alert(`Error deleting URL: ${error.message.toString()}`);
+      console.error("Error deleting URL:", error);
+    }
+  };
+
+  const getUrls = async () => {
+    try {
+      const response = await fetchUrls();
+      setUrls(response);
+    } catch (error) {
+      alert(`Error fetching URLs: ${error.message.toString()}`);
+      console.error("Error fetching URLs:", error);
+    }
   };
 
   useEffect(() => {
-    fetchUrls().then((urlList) => {
-      setUrls(urlList);
-    });
+    getUrls();
   }, []);
 
   return (
