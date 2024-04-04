@@ -3,9 +3,9 @@ import { deleteUrl, fetchUrls } from "./api/api";
 import UrlItem from "./UrlItem";
 
 export default function UrlList({ urls, setUrls }) {
-  const handleDelete = async (hash) => {
-    await deleteUrl(hash);
-    const filteredUrls = urls.filter((url) => url.hash !== hash);
+  const handleDelete = async (id) => {
+    await deleteUrl(id);
+    const filteredUrls = urls.filter((url) => url.id !== id);
     setUrls(filteredUrls);
   };
 
@@ -21,9 +21,9 @@ export default function UrlList({ urls, setUrls }) {
       {urls.length !== 0 &&
         urls.map((url) => (
           <UrlItem
-            key={url.hash}
+            key={url.id}
             url={url}
-            handleDelete={() => handleDelete(url.hash)}
+            handleDelete={() => handleDelete(url.id)}
           />
         ))}
     </ul>

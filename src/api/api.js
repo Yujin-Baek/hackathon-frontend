@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const createShortUrl = async (originalUrl) => {
+export const createShortUrl = async (originUrl) => {
   try {
     const response = await axios.post("http://localhost:8080/short-links", {
-      originalUrl,
+      originUrl,
     });
     return response.data;
   } catch (error) {
@@ -20,9 +20,9 @@ export const fetchUrls = async () => {
   }
 };
 
-export const deleteUrl = async (hash) => {
+export const deleteUrl = async (id) => {
   try {
-    await axios.delete(`http://localhost:8080/short-links/${hash}`);
+    await axios.delete(`http://localhost:8080/short-links/${id}`);
   } catch (error) {
     console.error("Error deleting URL:", error);
   }

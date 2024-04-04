@@ -9,8 +9,8 @@ export default function UrlItem({ url, handleDelete }) {
     <li>
       <div id="url-container">
         <p>longUrl</p>
-        <a id="long-url" href="url.originalUrl">
-          {url.originalUrl}
+        <a id="long-url" href="url.originUrl">
+          {url.originUrl}
         </a>
         <p>shortUrl</p>
         <div>
