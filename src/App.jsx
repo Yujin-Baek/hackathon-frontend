@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div id="App">
-      <h1>Short URL</h1>
+      <h1>URL Shortener</h1>
       <UrlInput urls={urls} setUrls={setUrls} />
       <UrlList urls={urls} setUrls={setUrls} />
     </div>

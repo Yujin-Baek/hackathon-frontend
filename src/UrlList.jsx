@@ -13,7 +13,7 @@ export default function UrlList({ urls, setUrls }) {
     fetchUrls().then((urlList) => {
       setUrls(urlList);
     });
-  }, []);
+  }, [setUrls]);
 
   return (
     <ul>
